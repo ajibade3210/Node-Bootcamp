@@ -15,11 +15,11 @@ This specify an endpoinnt of communication in our operating sys. It is used to s
 
 Ports are needed to direct traffic to the right appplication in or system.
 
-### API
+## API
 
 API specify how two applications talk to each other. It defines how a server response to requests made. Taking us where the type of the function call selected is supported, and how they are used. (i.e fetching a User list).
 
-### Http VERBS
+## Http VERBS
 
 GET
 POST
@@ -27,7 +27,7 @@ PUT
 PATCH
 DELETE....
 
-### Http Requests:
+## Http Requests:
 
 Every Http Request has 4 main parts.
 
@@ -36,7 +36,7 @@ Every Http Request has 4 main parts.
 - Body: {"text":"hello", "photo":"smile.jpg"}
 - Headers: Host.facebook.com
 
-### Http Response
+## Http Response
 
 Every Http Response has 3 main parts.
 
@@ -44,7 +44,7 @@ Every Http Response has 3 main parts.
 - Body: {text:"hi", photo: "wave.jpg"}
 - StatusCode: 200
 
-### Http Status Code
+## Http Status Code
 
 HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes:
 
@@ -62,7 +62,7 @@ HTTP response status codes indicate whether a specific HTTP request has been suc
 
 Where req and res are a readOnly and writeOnly stream in Node Js.
 
-### Endpoints: This are different urls that our server can hit.
+## Endpoints: This are different urls that our server can hit.
 
 i.e
 
@@ -71,7 +71,7 @@ i.e
 - Post/friends
 - Put/friend/5
 
-### Same Origin Policy:
+## Same Origin Policy:
 
 The same-origin policy is a critical security mechanism that restricts how a document or script loaded by one origin can interact with a resource from another origin.
 
@@ -100,4 +100,4 @@ It is always better to use White Listing.
 
 It is the Browser that enforces the same origin policy.
 
-### Dependency Used:
+## Dependency Used:
