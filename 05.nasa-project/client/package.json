@@ -14,7 +14,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "BUILD_PATH=../server/public react-scripts build",
+    "build": "react-scripts build",
+    "postbuild": "move build ../server/public",
     "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject"
   },
