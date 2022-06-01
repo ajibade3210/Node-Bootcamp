@@ -32,8 +32,8 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(planetsRouter);
-app.use(launchesRouter);
+app.use("/planets", planetsRouter);
+app.use("/launches", launchesRouter);
 
 /**
  * "/*" Helps Match every endpoints from the client side  for the server side to
