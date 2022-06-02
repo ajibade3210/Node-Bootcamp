@@ -30,7 +30,7 @@ function httpAddNewLaunch(req, res) {
 }
 
 function httpAbortLaunch(req, res) {
-  const launchId = Number(req.params);
+  const launchId = Number(req.params.id);
 
   //If launch does not exist
   if (!launchesModel.existLaunchWithId(launchId)) {
@@ -39,7 +39,7 @@ function httpAbortLaunch(req, res) {
     });
   }
 
-  const aborted = abortLaunchById(launchId);
+  const aborted = launchesModel.abortLaunchById(launchId);
   return res.status(200).json(aborted);
 }
 
