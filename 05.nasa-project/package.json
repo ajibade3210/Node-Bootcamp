@@ -12,8 +12,5 @@
     "test": "npm test --prefix server && npm test --prefix client"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "mongoose": "^6.3.6"
-  }
+  "license": "ISC"
 }

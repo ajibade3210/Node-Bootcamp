@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { parse } = require("csv-parse");
 
-const habitablePlanets = [];
+const planets = require("./planets.mongo");
 
 function isHabitablePlanet(planet) {
   return (
@@ -24,25 +24,59 @@ function loadPlanetsData() {
           columns: true,
         })
       )
-      .on("data", (data) => {
+      .on("data", async (data) => {
         if (isHabitablePlanet(data)) {
-          habitablePlanets.push(data);
+          savePlanets(data);
         }
       })
       .on("error", (err) => {
         console.log(err);
         reject(err);
       })
-      .on("end", () => {
-        console.log(`${habitablePlanets.length} habitable planets found!`);
+      .on("end", async () => {
+        const countPlanetsFound = await getAllplanets();
+        console.log(`${countPlanetsFound.length} habitable planets found!`);
         resolve();
       });
   });
 }
 
-function getAllplanets() {
-  console.log(habitablePlanets);
-  return habitablePlanets;
+async function getAllplanets() {
+  /**
+   * The first argument is left empty to fetch all data,
+   * or insert data name to filter data.
+   * Second argument can be use to state the data properties to exclude
+   * in our search results
+   */
+  return await planets.find(
+    {},
+    {
+      _id: 0,
+      _V: 0,
+    }
+  );
+}
+
+/**
+ * Using Upsert
+ *insert + update
+ * upsert -- this insert data into a collection if it doesnt already exists
+ * but if the data exist it will update that data
+ */
+async function savePlanets(planet) {
+  try {
+    await planets.updateOne(
+      {
+        keplerName: planet.kepler_name,
+      },
+      {
+        keplerName: planet.kepler_name,
+      },
+      { upsert: true }
+    );
+  } catch (err) {
+    console.error(`Could not save planet ${err}`);
+  }
 }
 
 module.exports = {
