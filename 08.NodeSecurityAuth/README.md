@@ -27,3 +27,15 @@ TLS certificate categories
 
 -CA-Signed Certificate
 Trusted by most client on the web. Useful for production.
+
+### Using HTTPS in Nodejs Servers
+
+branch: CreatingSImpleHttpsServer
+
+Using the built in Https module in node and OpenSSL.
+
+To generate an openssl key use:
+To Run Code Install Git for Windows
+`openssl req -x509 -newkey rsa:4096 -nodes -keyout key.pem -out cert.pem -days 365`
+
+This approach is known as public key cryptography
