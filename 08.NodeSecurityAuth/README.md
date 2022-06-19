@@ -97,6 +97,7 @@ Create New Project --> Make Sure Your Project is Selected --> CLick On Credetial
 
 Passport Js Authentication Middleware...
 
-### Cookies: Thiis are basically string of data stored in the browser.
+### Cookies:
+This are basically string of data stored in the browser.
 
-3.20.0
+### Session:
